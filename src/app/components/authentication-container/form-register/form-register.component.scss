@@ -1,0 +1,50 @@
+@import "../../../../styles.scss";
+#register-container {
+  width: 40vw;
+  height: 100vh;
+  //margin: 100px 100px 0 0;
+  #register {
+    padding: 100px 120px 0 120px;
+    user-select: none;
+    #register-text {
+      text-align: center;
+      font-size: 60px;
+      margin: 0px 0 50px 0 !important;
+      color: $primary-color;
+    }
+    #have-account-text {
+      text-align: center;
+      font-size: 25px;
+    }
+    .register-form {
+      .register-full-width {
+        width: 100%;
+      }
+      mat-form-field {
+        input {
+          width: 90%;
+        }
+        mat-icon {
+          width: 10%;
+          font-size: 30px;
+          color: $primary-color;
+        }
+      }
+      button {
+        border-radius: 20px !important;
+        padding: 0 50px;
+        margin-right: 20px;
+      }
+      .has-account {
+        color: $primary-color;
+        cursor: pointer;
+        font-weight: 100;
+      }
+      .has-account:hover {
+        color: $primary-color;
+        text-decoration: underline;
+        font-weight: bold;
+      }
+    }
+  }
+}

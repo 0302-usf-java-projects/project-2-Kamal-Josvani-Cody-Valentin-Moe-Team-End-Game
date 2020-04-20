@@ -1,0 +1,55 @@
+@import "../../../../styles.scss";
+#login-container {
+  width: 40vw;
+  height: 100vh;
+  //margin: 100px 100px 0 0;
+  #login {
+    padding: 80px;
+    user-select: none;
+    #login-text {
+      text-align: center;
+      font-size: 60px;
+      margin: 50px 0 100px 0 !important;
+      color: $primary-color;
+    }
+    #have-account-text {
+      text-align: center;
+      font-size: 25px;
+    }
+    .login-form {
+      .login-full-width {
+        width: 100%;
+      }
+      mat-form-field {
+        input {
+          width: 90%;
+        }
+        mat-icon {
+          width: 10%;
+          font-size: 30px;
+          color: $primary-color;
+        }
+      }
+      button {
+        border-radius: 20px !important;
+        padding: 0 50px;
+        margin-right: 20px;
+      }
+      .forgot-password,
+      .no-account {
+        color: $primary-color;
+        cursor: pointer;
+        font-weight: 100;
+      }
+      .forgot-password:hover,
+      .no-account:hover {
+        color: $primary-color;
+        text-decoration: underline;
+        font-weight: bold;
+      }
+    }
+  }
+}
+.spinner-container {
+  margin: 4px 9px;
+}

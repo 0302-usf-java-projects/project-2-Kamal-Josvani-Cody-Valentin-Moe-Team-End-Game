@@ -1,0 +1,44 @@
+<div id="register-container">
+  <div id="register">
+    <div id="register-text" class="m-3">REGISTER</div>
+    <form class="register-form">
+      <mat-form-field class="register-full-width">
+        <mat-label>First name</mat-label>
+        <input matInput placeholder="Ex. Joe" required />
+      </mat-form-field>
+
+      <mat-form-field class="register-full-width">
+        <mat-label>Last name</mat-label>
+        <input matInput placeholder="Ex. Joe" required />
+      </mat-form-field>
+
+      <mat-form-field class="register-full-width">
+        <mat-label>Sex</mat-label>
+        <mat-select required>
+          <mat-option value="1">Male</mat-option>
+          <mat-option value="2">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="register-full-width">
+        <mat-label>Select your birth day</mat-label>
+        <input matInput [matDatepicker]="picker" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="register-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Ex. Joe" required />
+      </mat-form-field>
+
+      <mat-form-field class="register-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Ex. *******" required />
+      </mat-form-field>
+      <br />
+      <button mat-raised-button color="primary" class="mt-3">Sign In</button>
+      <span class="has-account" (click)="toLoginFunc()">Have an Account ?</span>
+    </form>
+  </div>
+</div>

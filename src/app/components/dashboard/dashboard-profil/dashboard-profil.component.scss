@@ -1,0 +1,43 @@
+#container {
+  height: calc(100vh);
+  width: calc(30vw);
+  background-color: #5d4e8e;
+  border-radius: 0;
+  margin-right: 30px;
+  //box-shadow: inset 0px 3px 1px -1px #ffbf00;
+  #brand {
+    height: 50px;
+    background-color: #7768aa;
+    text-align: center;
+    color: white;
+    line-height: 50px;
+  }
+  #photo-container {
+    #photo {
+      width: 15vw;
+      height: 15vw;
+      border: gray solid 1px;
+      border-radius: 50%;
+      margin: 10px auto;
+      background-color: white;
+      text-align: center;
+      line-height: 15vw;
+    }
+  }
+  #list-container {
+    margin-top: 20px;
+    cursor: pointer;
+    .item {
+      color: rgb(207, 207, 207);
+      text-align: center;
+      i {
+        font-size: 30px;
+        margin: 10px 20px 10px 0;
+      }
+      div {
+        font-size: 20px;
+        display: inline-block;
+      }
+    }
+  }
+}

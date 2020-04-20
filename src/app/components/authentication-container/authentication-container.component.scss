@@ -1,0 +1,19 @@
+@import "../../../styles.scss";
+
+#background {
+  background-color: $background-color;
+  background: url("../../../assets/background.jpg");
+  width: 100%;
+  height: 100vh;
+}
+app-anime-side {
+  position: absolute;
+  height: 100%;
+  // background-color: #ffffffe6;
+}
+app-form-login,
+app-form-register {
+  position: absolute;
+  right: 0;
+  background-color: #ffffffe6;
+}

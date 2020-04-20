@@ -1,0 +1,8 @@
+<div id="background">
+  <app-anime-side></app-anime-side>
+  <app-form-register
+    *ngIf="isRegister"
+    (toggle)="onToggle()"
+  ></app-form-register>
+  <app-form-login *ngIf="isLogin" (toggle)="onToggle()"></app-form-login>
+</div>

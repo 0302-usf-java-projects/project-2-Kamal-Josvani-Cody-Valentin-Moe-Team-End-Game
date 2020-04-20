@@ -1,0 +1,43 @@
+<div id="login-container">
+  <div id="login">
+    <div id="login-text" class="m-3">LOGIN</div>
+    <form class="login-form" (ngSubmit)="onSubmit($event)">
+      <mat-form-field class="login-full-width">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Ex. Joe" [disabled]="isLoading" required />
+        <mat-icon fontSet="fa" fontIcon="fa-user"></mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="login-full-width">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          placeholder="Ex. *******"
+          [disabled]="isLoading"
+          required
+        />
+        <mat-icon fontSet="fa" fontIcon="fa-key"></mat-icon>
+      </mat-form-field>
+      <span class="forgot-password">Forgot the password ?</span>
+      <br />
+      <button
+        type="button"
+        mat-raised-button
+        color="primary"
+        class="mt-3"
+        (click)="login()"
+        [disabled]="isLoading"
+      >
+        <span *ngIf="!isLoading">Sign Up</span>
+        <div *ngIf="isLoading" class="spinner-container">
+          <div class="spinner">
+            <div></div>
+            <div><div></div></div>
+          </div>
+        </div>
+      </button>
+      <span class="no-account" (click)="toRegisterFunc()">No Account ?</span>
+    </form>
+  </div>
+</div>
