@@ -1,0 +1,41 @@
+@import "../../../../../../../styles.scss";
+
+#container {
+  background-color: $menu-background;
+  border-radius: 30px;
+  margin: 30px;
+
+  #head {
+    user-select: none;
+    padding: 10px;
+    img {
+      width: 50px;
+      border-radius: 50px;
+      vertical-align: middle;
+      margin: 0 10px;
+    }
+    #name-time-container {
+      vertical-align: middle;
+      display: inline-block;
+      #name {
+        font-weight: bold;
+        display: inline;
+        color: $primary-color2;
+      }
+      #time {
+        font-weight: 100;
+        font-size: 11px;
+      }
+    }
+  }
+  #separator {
+    width: 85%;
+    display: block;
+    margin: 10px auto;
+    height: 2px;
+    background-color: white;
+  }
+  #content {
+    padding: 50px;
+  }
+}

@@ -1,0 +1,26 @@
+<div id="container">
+  <div id="title">#Post</div>
+  <quill-editor
+    format="html"
+    [(ngModel)]="textFormat"
+    theme="snow"
+    placeholder="What's in your mind, Kamal ?"
+  ></quill-editor>
+
+  <button
+    type="button"
+    mat-raised-button
+    color="primary"
+    class="mt-3"
+    (click)="post()"
+    [disabled]="isLoading"
+  >
+    <span *ngIf="!isLoading">Post</span>
+    <div *ngIf="isLoading" class="spinner-container">
+      <div class="spinner">
+        <div></div>
+        <div><div></div></div>
+      </div>
+    </div>
+  </button>
+</div>

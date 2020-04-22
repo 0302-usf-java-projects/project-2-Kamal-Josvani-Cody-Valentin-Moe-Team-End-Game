@@ -1,0 +1,21 @@
+@import "../../../../../../styles.scss";
+
+#container {
+  padding: 50px;
+  background-color: white;
+  border-radius: 30px;
+  #title {
+    font-weight: bold;
+    margin: 0 0 40px 0;
+    font-size: 35px;
+  }
+  button {
+    padding: 0 50px;
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+  }
+  .spinner-container {
+    //padding: 5px;
+  }
+}

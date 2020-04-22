@@ -1,42 +1,82 @@
+@import "../../../../styles.scss";
+
 #container {
   height: calc(100vh);
-  width: calc(30vw);
-  background-color: #5d4e8e;
+  width: calc(20vw);
+  background-color: #ffffff;
   border-radius: 0;
-  margin-right: 30px;
+  user-select: none;
   //box-shadow: inset 0px 3px 1px -1px #ffbf00;
   #brand {
     height: 50px;
-    background-color: #7768aa;
+    background-color: #d8d8d8;
     text-align: center;
     color: white;
     line-height: 50px;
   }
+  #name-user {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 20px 0;
+  }
   #photo-container {
     #photo {
-      width: 15vw;
-      height: 15vw;
-      border: gray solid 1px;
+      width: 10vw;
+      height: 10vw;
       border-radius: 50%;
-      margin: 10px auto;
+      margin: 20px auto;
       background-color: white;
-      text-align: center;
-      line-height: 15vw;
+      text-align: left;
+      line-height: 10vw;
+      img {
+        width: calc(10vw - 2px);
+        height: calc(10vw - 2px);
+        border-radius: 50%;
+        border: gray solid 1px;
+      }
     }
   }
   #list-container {
-    margin-top: 20px;
-    cursor: pointer;
+    margin: 50px 15px 0 15px;
+    padding: 20px 0px;
+    border-radius: 20px;
+    background-color: $menu-background;
+    text-align: left !important;
+    //cursor: pointer;
     .item {
-      color: rgb(207, 207, 207);
-      text-align: center;
+      color: #46516a;
+      text-align: left;
+      padding: 10px;
+      outline: 0;
+      cursor: pointer;
       i {
-        font-size: 30px;
-        margin: 10px 20px 10px 0;
+        font-size: 14px;
+        margin: 10px 20px 10px 20px;
       }
       div {
-        font-size: 20px;
+        font-size: 16px;
         display: inline-block;
+      }
+    }
+    .item:hover {
+      background-color: #e9f6ff;
+    }
+
+    .active {
+      position: relative;
+      color: $primary-color2;
+      background-color: #e9f6ff;
+      outline: 0;
+      .indicator {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 40px;
+        background-color: $primary-color2;
+        border-radius: 50px;
+        height: 55px;
       }
     }
   }

@@ -6,6 +6,8 @@
   #register {
     padding: 100px 120px 0 120px;
     user-select: none;
+    animation: fade-in-fwd 0.8s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+
     #register-text {
       text-align: center;
       font-size: 60px;
@@ -46,5 +48,18 @@
         font-weight: bold;
       }
     }
+  }
+}
+
+/*******************ANIME***************************/
+
+@keyframes fade-in-fwd {
+  0% {
+    transform: translateZ(-80px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(0);
+    opacity: 1;
   }
 }

@@ -17,11 +17,7 @@ $Project2-accent: mat-palette($mat-pink, A200, A100, A400);
 $Project2-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$Project2-theme: mat-light-theme(
-  $Project2-primary,
-  $Project2-accent,
-  $Project2-warn
-);
+$Project2-theme: mat-light-theme($Project2-primary, $Project2-accent, $Project2-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -43,3 +39,5 @@ $primary-color: #000648;
 $primary-color2: #5d4e8e;
 
 $background-color: rgb(236, 236, 236);
+$container-background: #eef2f5;
+$menu-background: #f4f8fb;

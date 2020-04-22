@@ -22,7 +22,7 @@ export class AuthServiceService {
   public turnOn() {
     this.isAuthenticated = true;
     localStorage.setItem('login', 'true');
-    this.router.navigate['dashboard'];
+    this.router.navigateByUrl('/dashboard/(my:feed)');
   }
   public turnOff() {
     this.isAuthenticated = false;

@@ -17,7 +17,7 @@ export class FormLoginComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.getItem('login') == 'true'
-      ? this.router.navigateByUrl('/dashboard')
+      ? this.router.navigateByUrl('/dashboard/(my:feed)')
       : '';
   }
 
@@ -30,7 +30,7 @@ export class FormLoginComponent implements OnInit {
     localStorage.setItem('login', 'true');
     setTimeout(() => {
       this.authService.turnOn();
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/dashboard/(my:feed)');
       this.isLoading = false;
     }, 3000);
   }

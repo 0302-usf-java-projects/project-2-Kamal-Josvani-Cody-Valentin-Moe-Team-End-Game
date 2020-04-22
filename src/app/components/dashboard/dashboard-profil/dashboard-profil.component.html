@@ -4,20 +4,40 @@
   </div>
   <div id="photo-container">
     <div id="photo">
-      PHOTO
+      <img src="../../../../assets/blank-profile-picture.png" />
     </div>
   </div>
+  <div id="name-user">Kamal Ait Sidhoum</div>
   <div id="list-container">
-    <div class="item">
-      <i class="fas fa-user"></i>
-      <div>My profil</div>
+    <div
+      class="item"
+      [routerLink]="[{ outlets: { my: ['feed'] } }]"
+      [routerLinkActive]="['active']"
+    >
+      <i class="fas fa-rss"></i>
+      <div>My Feed</div>
+      <div class="indicator"></div>
     </div>
-    <div class="item">
-      <i class="fas fa-user"></i>
-      <div>Search</div>
+    <div
+      class="item"
+      [routerLink]="[{ outlets: { my: ['profil'] } }]"
+      [routerLinkActive]="['active']"
+    >
+      <i class="fas fa-address-card"></i>
+      <div>Modify my Profil</div>
+      <div class="indicator"></div>
+    </div>
+    <div
+      class="item"
+      [routerLink]="[{ outlets: { my: ['search'] } }]"
+      [routerLinkActive]="['active']"
+    >
+      <i class="fas fa-search"></i>
+      <div>Search a friend</div>
+      <div class="indicator"></div>
     </div>
     <div (click)="logout()" class="item">
-      <i class="fas fa-user"></i>
+      <i class="fas fa-sign-out-alt"></i>
       <div>Logout</div>
     </div>
   </div>
