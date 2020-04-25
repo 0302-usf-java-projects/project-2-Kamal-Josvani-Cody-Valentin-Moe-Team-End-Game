@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { User } from '../model/User';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthServiceService {
   isAuthenticated: boolean;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: HttpClient) {}
 
   public isAuthenticatedFunc(): boolean {
     localStorage.getItem('login') == 'false'
@@ -19,13 +21,13 @@ export class AuthServiceService {
     return this.isAuthenticated;
   }
 
-  public turnOn() {
+  public turnOn(user) {
     this.isAuthenticated = true;
-    localStorage.setItem('login', 'true');
+    localStorage.setItem('user', JSON.stringify(user));
     this.router.navigateByUrl('/dashboard/(my:feed)');
   }
   public turnOff() {
     this.isAuthenticated = false;
-    localStorage.setItem('login', 'false');
+    localStorage.setItem('user', 'false');
   }
 }

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +24,7 @@ import { MyFeedComponent } from './components/dashboard/dashboard-container/my-f
 import { MyProfilComponent } from './components/dashboard/dashboard-container/my-profil/my-profil.component';
 import { MySearchComponent } from './components/dashboard/dashboard-container/my-search/my-search.component';
 import { PostComponent } from './components/dashboard/dashboard-container/my-feed/post/post.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ItemContainerComponent } from './components/dashboard/dashboard-container/my-feed/item-container/item-container.component';
 import { ItemComponent } from './components/dashboard/dashboard-container/my-feed/item-container/item/item.component';
 
@@ -54,7 +55,9 @@ import { ItemComponent } from './components/dashboard/dashboard-container/my-fee
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     QuillModule.forRoot({
       modules: {
         syntax: true,

@@ -16,9 +16,9 @@ export class FormLoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    localStorage.getItem('login') == 'true'
-      ? this.router.navigateByUrl('/dashboard/(my:feed)')
-      : '';
+    localStorage.getItem('login') != 'false'
+      ? ''
+      : this.router.navigateByUrl('/dashboard/(my:feed)');
   }
 
   toRegisterFunc() {
@@ -27,9 +27,18 @@ export class FormLoginComponent implements OnInit {
 
   login() {
     this.isLoading = !this.isLoading;
-    localStorage.setItem('login', 'true');
+    let user = {
+      id: 1,
+      firstname: 'kamal',
+      lastname: 'ait sidhoum',
+      sex: '1',
+      email: 'kamalaitsidhofffggum@gmail.com',
+      birthday: '05/14/1994',
+      password: 'password',
+    };
+    localStorage.setItem('user', JSON.stringify(user));
     setTimeout(() => {
-      this.authService.turnOn();
+      this.authService.turnOn(user);
       this.router.navigateByUrl('/dashboard/(my:feed)');
       this.isLoading = false;
     }, 3000);
