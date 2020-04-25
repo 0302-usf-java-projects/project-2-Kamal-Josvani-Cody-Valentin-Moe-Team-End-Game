@@ -21,7 +21,7 @@ export class DashboardProfilComponent implements OnInit {
 
   logout() {
     console.log('lol');
-    this.authService.turnOff();
+    localStorage.setItem("login","false");
     this.router.navigateByUrl('/login');
   }
 }

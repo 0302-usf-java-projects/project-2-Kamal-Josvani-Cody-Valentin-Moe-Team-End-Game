@@ -1,10 +1,10 @@
 <div id="login-container">
   <div id="login">
     <div id="login-text" class="m-3">LOGIN</div>
-    <form class="login-form" (ngSubmit)="onSubmit($event)">
+    <form class="login-form" (ngSubmit)="onSubmit($event)" [formGroup]="form">
       <mat-form-field class="login-full-width">
-        <mat-label>Username</mat-label>
-        <input matInput placeholder="Ex. Joe" [disabled]="isLoading" required />
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Ex. Joe" [disabled]="isLoading" type="email"  formControlName="email" required />
         <mat-icon fontSet="fa" fontIcon="fa-user"></mat-icon>
       </mat-form-field>
 
@@ -15,6 +15,7 @@
           type="password"
           placeholder="Ex. *******"
           [disabled]="isLoading"
+          formControlName="password"
           required
         />
         <mat-icon fontSet="fa" fontIcon="fa-key"></mat-icon>

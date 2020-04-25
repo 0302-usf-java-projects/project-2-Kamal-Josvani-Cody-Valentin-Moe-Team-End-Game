@@ -19,7 +19,7 @@ export class MyProfilComponent implements OnInit {
     public register: FormBuilder,
     private user: UserService
   ) {
-    let userdata = localStorage.getItem('user');
+    let userdata = localStorage.getItem('login');
     userdata = JSON.parse(userdata);
     this.form = this.register.group({
       id: [userdata['id']],
@@ -28,7 +28,7 @@ export class MyProfilComponent implements OnInit {
       sex: [userdata['sex'], Validators.required],
       birthday: [userdata['birthday'], Validators.required],
       email: [userdata['email'], Validators.required],
-      password: [userdata['password'], Validators.required],
+      password: ["", Validators.required]
     });
   }
 

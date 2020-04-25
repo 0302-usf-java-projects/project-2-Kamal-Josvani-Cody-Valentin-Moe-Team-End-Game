@@ -19,15 +19,10 @@ export class AuthServiceService {
     // true or false
     // return !this.jwtHelper.isTokenExpired(token);
     return this.isAuthenticated;
-  }
+  }d
 
-  public turnOn(user) {
-    this.isAuthenticated = true;
-    localStorage.setItem('user', JSON.stringify(user));
-    this.router.navigateByUrl('/dashboard/(my:feed)');
-  }
-  public turnOff() {
-    this.isAuthenticated = false;
-    localStorage.setItem('user', 'false');
+  public authMe(email:String,password:String) {
+   return this.http.get("http://localhost:8080/Project_2_SpringFlowers/"+email+"/"+password+"/authentication.tony")
+    .toPromise();
   }
 }
