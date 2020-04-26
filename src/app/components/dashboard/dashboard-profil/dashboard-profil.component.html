@@ -4,10 +4,10 @@
   </div>
   <div id="photo-container">
     <div id="photo">
-      <img src="../../../../assets/blank-profile-picture.png" />
+      <img [src]="src_img"/>
     </div>
   </div>
-  <div id="name-user">Kamal Ait Sidhoum</div>
+<div id="name-user">{{userData.firstname}} {{userData.lastname}}</div>
   <div id="list-container">
     <div
       class="item"

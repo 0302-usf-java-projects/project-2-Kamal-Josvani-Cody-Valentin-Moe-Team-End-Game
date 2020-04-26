@@ -7,7 +7,9 @@ import * as S3 from 'aws-sdk/clients/s3';
 export class UploadPhotoService {
   constructor() {}
 
-  uploadFile(file) {
+  uploadFile(file,id) {
+    console.log("dfgdd");
+    console.log(id);
     const contentType = file.type;
     const bucket = new S3({
       accessKeyId: 'AKIAUJAOIAXT4LC3YTAO',
@@ -16,7 +18,7 @@ export class UploadPhotoService {
     });
     const params = {
       Bucket: 'projectendgame',
-      Key: '1',
+      Key: id,
       Body: file,
       ACL: 'public-read',
       ContentType: contentType,

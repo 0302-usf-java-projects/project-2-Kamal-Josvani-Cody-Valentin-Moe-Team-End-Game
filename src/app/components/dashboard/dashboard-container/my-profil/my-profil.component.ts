@@ -2,6 +2,8 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { UploadPhotoService } from 'src/app/services/upload-photo.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import $ from "jquery";
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-my-profil',
@@ -10,37 +12,54 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class MyProfilComponent implements OnInit {
   selectedFiles: FileList;
-  src_img: string = 'https://projectendgame.s3.us-east-2.amazonaws.com/1';
+  src_img: string = '';
   isLoading: boolean = false;
   form: FormGroup;
+  userData:any;
   constructor(
     private uploadPhoto: UploadPhotoService,
-    private cdRef: ChangeDetectorRef,
     public register: FormBuilder,
-    private user: UserService
+    private user: UserService,
+    private sharedService:SharedService
   ) {
-    let userdata = localStorage.getItem('login');
-    userdata = JSON.parse(userdata);
+    this.userData = localStorage.getItem('login');
+    this.userData = JSON.parse(this.userData);
     this.form = this.register.group({
-      id: [userdata['id']],
-      firstname: [userdata['firstname'], Validators.required],
-      lastname: [userdata['lastname'], Validators.required],
-      sex: [userdata['sex'], Validators.required],
-      birthday: [userdata['birthday'], Validators.required],
-      email: [userdata['email'], Validators.required],
+      id: [this.userData['id']],
+      firstname: [this.userData['firstname'], Validators.required],
+      lastname: [this.userData['lastname'], Validators.required],
+      sex: [this.userData['sex'], Validators.required],
+      birthday: [this.userData['birthday'], Validators.required],
+      email: [this.userData['email'], Validators.required],
       password: ["", Validators.required]
     });
+    this.imageExists("https://projectendgame.s3.us-east-2.amazonaws.com/"+this.userData['id'].toString());
+
   }
+
+  imageExists(image_url){
+
+    $.get(image_url)
+    .done(()=> { 
+      console.log("exist");
+        this.src_img = image_url;
+    }).fail(()=> { 
+      console.log("dont exist");
+      this.src_img = "../../../../../assets/blank-profile-picture.png";
+    })
+
+}
 
   ngOnInit(): void {}
 
   upload(event) {
     this.selectedFiles = event.target.files;
     const file = this.selectedFiles.item(0);
-    this.uploadPhoto.uploadFile(file);
+    this.uploadPhoto.uploadFile(file,this.userData["id"].toString());
     setTimeout(() => {
       this.src_img =
-        'https://projectendgame.s3.us-east-2.amazonaws.com/1?refresh';
+        'https://projectendgame.s3.us-east-2.amazonaws.com/'+this.userData["id"].toString()+"?"+Date.now().toString;
+         this.sharedService.sendRefresh();
     }, 2000);
   }
 
@@ -50,6 +69,8 @@ export class MyProfilComponent implements OnInit {
       this.isLoading = true;
       this.user.update(this.form.value).then((resp) => {
         console.log(resp);
+        localStorage.setItem("login",JSON.stringify(resp));
+        this.sharedService.sendRefresh();
         this.isLoading = false;
       });
     }

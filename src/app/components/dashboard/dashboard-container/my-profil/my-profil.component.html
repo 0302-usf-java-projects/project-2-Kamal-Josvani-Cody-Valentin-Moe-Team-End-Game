@@ -11,9 +11,8 @@
       type="file"
       accept="image/*"
       style="display: none;"
-      (change)="upload($event)"
+      (change)="upload($event,userData.id)"
     />
-
     <form id="form" class="mt-5" [formGroup]="form">
       <mat-form-field class="w-50">
         <mat-label>First name</mat-label>
