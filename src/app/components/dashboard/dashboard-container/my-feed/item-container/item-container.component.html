@@ -1,6 +1,7 @@
-<div id="container">
+<div id="container" *ngIf="posts">
   <div id="title">
-    #My Feed
+    #Feed
   </div>
-  <app-item></app-item>
-</div>
+  <app-item *ngFor="let post of posts" [post]="post"></app-item>
+
+  </div>

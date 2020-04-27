@@ -1,0 +1,33 @@
+@import "../../../../../../styles.scss";
+
+.search{
+    img{
+      border-radius: 50%;
+      width: 60px;
+      margin: 10px;
+      display: inline-block;
+    }
+  .block-search{
+    display: inline-block;
+    width: calc(100% - 80px);
+    vertical-align: middle;
+    .name{
+      font-weight: bold;
+      user-select: none;
+      width: 80%;
+      display: inline-block;
+    }
+    .btn-view-profil{
+        width: 20%;
+        display: inline-block;
+        background-color: $primary-color2;
+        color: white;
+        border-radius: 30px;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+  }
+
+  }

@@ -26,7 +26,7 @@ export class FormLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    localStorage.getItem('login') != 'false'
+    localStorage.getItem('login') == 'false'
       ? ''
       : this.router.navigateByUrl('/dashboard/(my:feed)');
   }

@@ -35,10 +35,80 @@
     height: 2px;
     background-color: white;
   }
-  #content {
-    padding: 50px;
+  #content-container {
+    #content{
+      padding: 5px 25px;
+      width: 100%;
+      display: block;
+      margin: 20px auto;
+    }
+
+
+    img{
+      width: 80%;
+      display: block;
+      margin: 20px auto;
+    }
   }
   #like-container {
-    padding: 10px;
+    padding: 0px;
+    width: calc(10% - 10px);
+    display: inline-block;
+    margin: 5px;
+    font-size: 20px;
+    vertical-align: text-bottom;
+    height: 42px;
+    text-align: center;
+    line-height: 42px;
+    cursor: pointer;
   }
+  #commentator-container{
+    .commentator{
+      img{
+        border-radius: 50%;
+        width: 30px;
+        margin: 10px;
+        display: inline-block;
+      }
+    .block-comment{
+      display: inline-block;
+      width: calc(100% - 50px);
+      vertical-align: middle;
+      .name{
+        font-weight: bold;
+        user-select: none;
+      }
+
+    }
+  
+    }
+  }
+  #comment {
+    width: calc(90% - 10px);
+    display: inline-block;
+    margin: 15px 0;
+    height: 42px;
+ 
+  quill-editor{
+    width: calc(90% - 20px);
+    display: inline-block;
+    background-color: white;
+    border-radius: 20px 0 0 20px;
+    line-height: 42px;
+    margin-left: 20px;
+  }
+  #comment-btn{
+    width: 10%;
+    display: inline-block;
+    line-height: 42px;
+    text-align: center;
+    line-height: 42px;
+    vertical-align: top;
+    border-radius: 0 20px 20px 0;
+    background-color: $primary-color2;
+    color: white;
+    color: 20px;
+    cursor: pointer;
+  }
+}
 }

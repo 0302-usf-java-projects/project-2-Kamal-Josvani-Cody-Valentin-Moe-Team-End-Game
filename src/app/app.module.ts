@@ -27,6 +27,10 @@ import { PostComponent } from './components/dashboard/dashboard-container/my-fee
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ItemContainerComponent } from './components/dashboard/dashboard-container/my-feed/item-container/item-container.component';
 import { ItemComponent } from './components/dashboard/dashboard-container/my-feed/item-container/item/item.component';
+import { ItemSearchComponent } from './components/dashboard/dashboard-container/my-search/item-search/item-search.component';
+import { ViewProfilComponent } from './components/dashboard/dashboard-container/my-search/view-profil/view-profil.component';
+import { OtherProfilComponent } from './components/dashboard/dashboard-container/my-search/view-profil/other-profil/other-profil.component';
+import { SafeHtmlPipe } from './safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,10 @@ import { ItemComponent } from './components/dashboard/dashboard-container/my-fee
     PostComponent,
     ItemComponent,
     ItemContainerComponent,
+    ItemSearchComponent,
+    ViewProfilComponent,
+    OtherProfilComponent,
+    SafeHtmlPipe,
   ],
   imports: [
     BrowserModule,

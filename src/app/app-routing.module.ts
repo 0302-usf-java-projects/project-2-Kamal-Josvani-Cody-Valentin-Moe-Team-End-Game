@@ -6,6 +6,7 @@ import { AuthGuardServiceService } from './services/auth-guard-service.service';
 import { MyFeedComponent } from './components/dashboard/dashboard-container/my-feed/my-feed.component';
 import { MyProfilComponent } from './components/dashboard/dashboard-container/my-profil/my-profil.component';
 import { MySearchComponent } from './components/dashboard/dashboard-container/my-search/my-search.component';
+import { ViewProfilComponent } from './components/dashboard/dashboard-container/my-search/view-profil/view-profil.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,11 @@ const routes: Routes = [
       {
         path: 'search',
         component: MySearchComponent,
+        outlet: 'my',
+      },
+      {
+        path: 'viewprofil',
+        component: ViewProfilComponent,
         outlet: 'my',
       },
     ],

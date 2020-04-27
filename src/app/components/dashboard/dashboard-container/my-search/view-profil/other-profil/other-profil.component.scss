@@ -1,0 +1,23 @@
+#container {
+    padding: 40px;
+    margin: 0 150px;
+    background-color: white;
+    border-radius: 30px;
+    margin-top: 30px;
+    
+    #img-container {
+        position: relative;
+        img {
+            display: block;
+            height: 200px;
+            clip-path: circle(at 50% 50%);
+            margin: auto;
+        }
+    }
+    
+    #title {
+        font-weight: bold;
+        margin: 0 0 40px 0;
+        font-size: 35px;
+    }
+}

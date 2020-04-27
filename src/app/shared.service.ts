@@ -12,4 +12,11 @@ export class SharedService {
   getRefresh(): Observable<any>{ 
     return this.subject.asObservable();
   }
+
+  sendRefreshPost() {
+    this.subject.next();
+  }
+  getRefreshPost(): Observable<any>{ 
+    return this.subject.asObservable();
+  }
 }

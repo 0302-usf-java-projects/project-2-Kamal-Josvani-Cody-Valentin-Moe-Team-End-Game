@@ -8,12 +8,27 @@
     font-weight: bold;
     margin: 0 0 40px 0;
     font-size: 35px;
+    display: inline-block;
+  }
+  #add-img-btn{
+    display: inline-block;
+    float: right;
+    padding: 5px 10px;
+    color: white;
+    background-color: $primary-color2;
+    border: 0;
   }
   button {
     padding: 0 50px;
     border-radius: 20px;
     display: block;
     margin: auto;
+  }
+  img{
+    width: 80%;
+    display: block;
+    margin: 20px auto;
+    
   }
   .spinner-container {
     //padding: 5px;
