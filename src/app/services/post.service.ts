@@ -21,4 +21,10 @@ export class PostService {
       .get<Post[]>(`http://localhost:8080/Project_2_SpringFlowers/${id.toString()}/getpo.tony`)
       .toPromise();
   }
+
+  update(post: Post): Promise<Post> {
+    return this.http
+      .post<Post>(`http://localhost:8080/Project_2_SpringFlowers/uppo.tony`,post)
+      .toPromise();
+  }
 }

@@ -3,6 +3,7 @@ import * as moment from 'moment';
 import $ from "jquery";
 import { Post } from 'src/app/model/Post';
 import { SharedService } from 'src/app/shared.service';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-item',
@@ -15,8 +16,7 @@ export class ItemComponent implements OnInit {
   src_img="../../../../../../../assets/blank-profile-picture.png";
   userData:any;
   isLiked:boolean=false;
-  numberOfLike :number=0;
-  constructor() {
+  constructor(private postServer:PostService) {
 
 
    // 
@@ -46,7 +46,11 @@ export class ItemComponent implements OnInit {
 
 
 toggleLike() {
-      this.isLiked = !this.isLiked;
-      this.isLiked ? this.numberOfLike++ : this.numberOfLike--;
+  this.isLiked = !this.isLiked;
+  this.isLiked ? this.post.numLikes++ : this.post.numLikes--;
+  console.log(this.post);
+  this.postServer.update(this.post).then((resp)=>{
+    console.log(resp);
+  })
 }
 }

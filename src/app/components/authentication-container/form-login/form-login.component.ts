@@ -36,15 +36,6 @@ export class FormLoginComponent implements OnInit {
   }
 
   login() {
-    let user = {
-      id:"",
-      birthday:"",
-      email:"",
-      firstname:"",
-      lastname:"",
-      password:"",
-      sex:"",
-    }
 
     if (this.form.valid) {
       this.isLoading = !this.isLoading;
@@ -52,15 +43,23 @@ export class FormLoginComponent implements OnInit {
       setTimeout(() => {
         this.isLoading = true;
         this.authService.authMe(this.form.value.email,this.form.value.password).then((resp) => {
+          console.log(resp);
           if(resp != null){
-            user.id = resp[0];
-            user.birthday = resp[1];
-            user.email = resp[2];
-            user.firstname = resp[3];
-            user.lastname = resp[4];
-            user.password = resp[5];
-            user.sex =  resp[6];
-            localStorage.setItem("login",JSON.stringify(user))
+            let user:User = {
+              id:resp[0],
+              address:resp[1],
+              birthday:resp[2],
+              education: resp[3],
+              email:resp[4],
+              firstname:resp[5],
+              lastname:resp[6],
+              password:resp[7],
+              phone:resp[8],
+              sex:resp[9],
+              work:resp[10]
+            };//bad practice :(
+
+            localStorage.setItem("login",JSON.stringify(user));
             this.router.navigateByUrl('/dashboard/(my:feed)');
           } else {
             localStorage.setItem("login","false");

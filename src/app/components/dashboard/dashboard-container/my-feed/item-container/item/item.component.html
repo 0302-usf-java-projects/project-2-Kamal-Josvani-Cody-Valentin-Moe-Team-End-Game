@@ -67,7 +67,7 @@
 
 
   <div id="like-container">
-    <div (click)="toggleLike()" [ngStyle]="{'color': isLiked ? '#5d4e8e' : 'black' }"><i class="fas fa-thumbs-up"></i> {{numberOfLike}}</div>
+    <div (click)="toggleLike()" [ngStyle]="{'color': isLiked ? '#5d4e8e' : 'black' }"><i class="fas fa-thumbs-up"></i>{{post["numLikes"]}}</div>
   </div>
 
 </div>

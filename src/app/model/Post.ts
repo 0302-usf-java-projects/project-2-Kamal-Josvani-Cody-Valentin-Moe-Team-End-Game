@@ -8,6 +8,8 @@ export interface Post {
 	content:string,
     title:string,
     type:string,
-    photoKey:string
+    photoKey:string,
+    numLikes:number
+
   }
   

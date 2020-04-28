@@ -6,4 +6,8 @@ export interface User {
   birthday: string;
   sex: string;
   email: string;
+  phone: string;
+  education:string;
+  address:string;
+  work:string;
 }

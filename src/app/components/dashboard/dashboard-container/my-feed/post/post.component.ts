@@ -90,8 +90,8 @@ export class PostComponent implements OnInit {
       "content":this.textFormat.toString(),
       "title":"",
       "type":this.type,
-      "photoKey":this.keyPhoto
-
+      "photoKey":this.keyPhoto,
+      "numLikes": 0
       }
       this.postService.set(post).then((resp)=>{
         console.log(resp);
