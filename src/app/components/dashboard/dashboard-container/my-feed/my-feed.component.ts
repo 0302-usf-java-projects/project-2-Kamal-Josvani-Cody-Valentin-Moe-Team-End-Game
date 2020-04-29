@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from 'src/app/services/post.service';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-my-feed',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyFeedComponent implements OnInit {
 
-  constructor() { }
+  constructor(private postService:PostService,private sharedService:SharedService) {
+    
+  }
 
   ngOnInit(): void {
   }

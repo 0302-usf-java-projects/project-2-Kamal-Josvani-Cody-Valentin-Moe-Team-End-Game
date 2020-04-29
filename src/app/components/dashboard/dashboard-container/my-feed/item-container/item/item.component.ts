@@ -22,12 +22,12 @@ export class ItemComponent implements OnInit {
    // 
     this.userData = JSON.parse(localStorage.getItem("login"));
 
-    this.imageExists("https://projectendgame.s3.us-east-2.amazonaws.com/"+this.userData['id'].toString())
   }
 
   ngOnInit(): void {
     this.time = moment(this.post["created"]).fromNow();
     console.log(this.post);
+    this.imageExists("https://projectendgame.s3.us-east-2.amazonaws.com/"+this.post.user.id)
   }
 
 

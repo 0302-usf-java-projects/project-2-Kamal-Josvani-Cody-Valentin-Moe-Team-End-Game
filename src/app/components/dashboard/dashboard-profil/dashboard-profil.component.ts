@@ -22,17 +22,16 @@ export class DashboardProfilComponent implements OnInit {
     this.imageExists("https://projectendgame.s3.us-east-2.amazonaws.com/"+this.userData['id'].toString());
     this.sharedService.getRefresh().subscribe(()=>{
       this.userData = JSON.parse(localStorage.getItem('login'));
-      console.log(this.userData);
       this.imageExists("https://projectendgame.s3.us-east-2.amazonaws.com/"+this.userData['id'].toString()+"?"+Date.now().toString);
-      console.log("OPA");
       })
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   logout() {
-    console.log('lol');
-    localStorage.setItem("login","false");
+    localStorage.setItem("login",null);
     this.router.navigateByUrl('/login');
   }
 
@@ -41,10 +40,8 @@ export class DashboardProfilComponent implements OnInit {
 
     $.get(image_url)
     .done(()=> { 
-      console.log("exist");
         this.src_img = image_url;
     }).fail(()=> { 
-      console.log("dont exist");
       this.src_img = "../../../../assets/blank-profile-picture.png";
     })
 

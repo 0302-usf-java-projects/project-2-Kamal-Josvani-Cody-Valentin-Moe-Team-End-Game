@@ -1,6 +1,40 @@
-    <div id="container">
-        <div id="title">#profil</div>
+    <div id="container" >
+      <div id="title">#profil</div>
+      <div id="user-container" *ngIf="user">
         <div id="img-container">
           <img [src]="src_img" alt="" />
+        </div>
+          <div id="name">{{user.firstname}} {{user.lastname}}</div>
+          <div id="container-info">
+            <div class="row">
+              <div class="col-4">
+                <div><i class="fas fa-venus-mars"></i><br> {{user.sex == '1' ? 'Male':'Females'}}</div>
+  
+              </div>
+              <div class="col-4">
+                <div><i class="fas fa-birthday-cake"></i><br> {{user.birthday.split('T')[0]}}</div>
+              </div>
+              <div class="col-4">
+                <div><i class="fas fa-envelope"></i><br> {{user.email}}</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <div><i class="fas fa-briefcase"></i><br> {{user.work == null ? '-':user.work}}</div>
+              </div>
+              <div class="col-4">
+                <div><i class="fas fa-university"></i><br> {{user.education == null ? '-':user.education}}</div>
+              </div>
+              <div class="col-4">
+                <div><i class="fas fa-map-marker-alt"></i><br> {{user.address == null ? '-':user.address}}</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div><i class="fas fa-phone"></i><br> {{user.phone == null ? '-':user.phone}}</div>
+
+              </div>
+            </div>
           </div>
+      </div>   
 </div>

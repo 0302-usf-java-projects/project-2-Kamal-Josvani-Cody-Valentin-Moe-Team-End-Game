@@ -1,23 +1,47 @@
 #container {
     padding: 40px;
-    margin: 0 150px;
     background-color: white;
     border-radius: 30px;
     margin-top: 30px;
-    
-    #img-container {
-        position: relative;
-        img {
-            display: block;
-            height: 200px;
-            clip-path: circle(at 50% 50%);
-            margin: auto;
-        }
-    }
-    
+    user-select: none;
+            
     #title {
         font-weight: bold;
         margin: 0 0 40px 0;
         font-size: 35px;
     }
+    #user-container{
+        #img-container {
+            position: relative;
+            img {
+                display: block;
+                height: 200px;
+                clip-path: circle(at 50% 50%);
+                margin: auto;
+            }
+          
+        }
+    
+        #name{
+            text-align: center;
+            font-weight: bold;
+            font-size: 30px;
+            margin: 30px;
+        }
+
+    
+        #container-info{
+            font-size: 18px;
+            margin: 30px;
+            text-align: center;
+            background-color: #f4f8fb;
+            padding: 5px;
+            border-radius: 30px;
+            .row{
+                margin: 50px 10px;
+            }
+        }
+    }
+    
+   
 }

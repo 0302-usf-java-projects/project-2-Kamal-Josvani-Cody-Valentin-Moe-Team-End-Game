@@ -3,6 +3,7 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/model/User';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-form-login',
@@ -12,12 +13,14 @@ import { User } from 'src/app/model/User';
 export class FormLoginComponent implements OnInit {
   @Output() toggle = new EventEmitter<void>();
   isLoading: boolean = false;
+  errorLogin:boolean = false;
   form: FormGroup;
 
   constructor(
     private authService: AuthServiceService,
     private router: Router,
-    public register: FormBuilder
+    public register: FormBuilder,
+    private sharedService:SharedService
   ) {
     this.form = this.register.group({
       email: ['', Validators.required],
@@ -26,7 +29,7 @@ export class FormLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    localStorage.getItem('login') == 'false'
+    JSON.parse(localStorage.getItem('login'))== null
       ? ''
       : this.router.navigateByUrl('/dashboard/(my:feed)');
   }
@@ -40,7 +43,6 @@ export class FormLoginComponent implements OnInit {
     if (this.form.valid) {
       this.isLoading = !this.isLoading;
       console.log(this.form);
-      setTimeout(() => {
         this.isLoading = true;
         this.authService.authMe(this.form.value.email,this.form.value.password).then((resp) => {
           console.log(resp);
@@ -60,29 +62,19 @@ export class FormLoginComponent implements OnInit {
             };//bad practice :(
 
             localStorage.setItem("login",JSON.stringify(user));
-            this.router.navigateByUrl('/dashboard/(my:feed)');
+            this.sharedService.sendSuccessLogin();
+            setTimeout(() => { //emulate
+              this.router.navigateByUrl('/dashboard/(my:feed)');
+            }, 2000);
           } else {
-            localStorage.setItem("login","false");
+            console.log("wrong login");
+            this.sharedService.sendWrongLogin();
+            localStorage.setItem("login",null);
           }
           console.log(resp);
           this.isLoading = false;
         });
-        this.isLoading = false;
-      }, 1000);
     }
-
-
-
-  /*  let user = {
-      id: 1,
-      firstname: 'kamal',
-      lastname: 'ait sidhoum',
-      sex: '1',
-      email: 'kamalaitsidhofffggum@gmail.com',
-      birthday: '05/14/1994',
-      password: 'password',
-    }; */
-    //localStorage.setItem('user', JSON.stringify(user));
 
   }
 

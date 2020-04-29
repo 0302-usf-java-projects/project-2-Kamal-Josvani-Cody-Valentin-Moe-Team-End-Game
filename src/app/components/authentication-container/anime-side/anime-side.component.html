@@ -1,6 +1,40 @@
 <!--<img src="../../../../assets/anime_auth.svg" id="anime-svg" />
 -->
 <div id="anime-container">
-  <div class="background"></div>
+  <div class="background" [ngClass]="{'wrong': isLoginWrong,'success': isLoginSuccess}">
+    <div *ngIf="isWelcome">
+      <div id="welcome">
+        Welcome to XXXXX
+      </div>
+      <div id="why">
+        Why choose XXXXX ?
+      </div>
+      <div id="arg-container">
+        <div id="arg1">
+          <i class="fas fa-arrow-circle-right"></i> bla bla bla bla 
+        </div>
+        <div id="arg2">
+          <i class="fas fa-arrow-circle-right"></i> bla bla bla bla 
+        </div>
+        <div id="arg3">
+          <i class="fas fa-arrow-circle-right"></i> bla bla bla bla 
+        </div>
+        <div id="arg4">
+          <i class="fas fa-arrow-circle-right"></i> bla bla bla bla 
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isLoginWrong">
+      <div id="error-login">Please verify your username and password !</div>
+    </div>
+    <div *ngIf="isLoginSuccess">
+      <div id="success-login">Welcome {{user.firstname}} {{user.lastname}} </div>
+    </div>
+    <div *ngIf="isRegisterSuccess">
+      <div id="success-register">Thank you for choosing us {{firstnameRegister}} !</div>
+    </div>
+  </div>
 </div>
 <div id="triangle"></div>
+
+

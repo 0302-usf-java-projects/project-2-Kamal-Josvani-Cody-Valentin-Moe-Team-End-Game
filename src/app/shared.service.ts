@@ -5,18 +5,50 @@ import { Subject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
-  private subject = new Subject<any>();
+  private RefreshSubject = new Subject<any>();
+  private RefreshPostSubject = new Subject<any>();
+  private OtherPostSubject = new Subject<any>();
+  private WrongLoginSubject = new Subject<any>();
+  private SuccessLoginSubject = new Subject<any>();
+  private SuccessRegisterSubject = new Subject<any>();
+
   sendRefresh() {
-    this.subject.next();
+    this.RefreshSubject.next();
   }
   getRefresh(): Observable<any>{ 
-    return this.subject.asObservable();
+    return this.RefreshSubject.asObservable();
   }
 
   sendRefreshPost() {
-    this.subject.next();
+    this.RefreshPostSubject.next();
   }
   getRefreshPost(): Observable<any>{ 
-    return this.subject.asObservable();
+    return this.RefreshPostSubject.asObservable();
+  }
+
+  sendOtherPost(id) {
+    this.OtherPostSubject.next({ id: id });
+  }
+  getOtherPost(): Observable<any>{ 
+    return this.OtherPostSubject.asObservable();
+  }
+
+  sendWrongLogin(){
+    this.WrongLoginSubject.next();
+  }
+  getWrongLogin(): Observable<any>{
+    return this.WrongLoginSubject.asObservable();
+  }
+  sendSuccessLogin(){
+    this.SuccessLoginSubject.next();
+  }
+  getSuccessLogin(): Observable<any>{
+    return this.SuccessLoginSubject.asObservable();
+  }
+  sendSuccessRegister(firstname:string){
+    this.SuccessRegisterSubject.next({ firstname: firstname });
+  }
+  getSuccessRegister(): Observable<any>{
+    return this.SuccessRegisterSubject.asObservable();
   }
 }

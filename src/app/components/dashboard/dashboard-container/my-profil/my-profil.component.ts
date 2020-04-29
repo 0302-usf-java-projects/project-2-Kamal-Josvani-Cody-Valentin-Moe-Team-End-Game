@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import $ from "jquery";
 import { SharedService } from 'src/app/shared.service';
+import { User } from 'src/app/model/User';
 
 @Component({
   selector: 'app-my-profil',
@@ -15,15 +16,14 @@ export class MyProfilComponent implements OnInit {
   src_img: string = '';
   isLoading: boolean = false;
   form: FormGroup;
-  userData:any;
+  userData:User;
   constructor(
     private uploadPhoto: UploadPhotoService,
     public register: FormBuilder,
     private user: UserService,
     private sharedService:SharedService
   ) {
-    this.userData = localStorage.getItem('login');
-    this.userData = JSON.parse(this.userData);
+    this.userData = JSON.parse(localStorage.getItem('login'));
     this.form = this.register.group({
       id: [this.userData['id']],
       firstname: [this.userData['firstname'], Validators.required],
@@ -31,7 +31,12 @@ export class MyProfilComponent implements OnInit {
       sex: [this.userData['sex'], Validators.required],
       birthday: [this.userData['birthday'], Validators.required],
       email: [this.userData['email'], Validators.required],
-      password: ["", Validators.required]
+      password: [""],
+      phone: [this.userData['phone']],
+      education: [this.userData['education']],
+      address: [this.userData['address']],
+      work: [this.userData['work']],
+
     });
     this.imageExists("https://projectendgame.s3.us-east-2.amazonaws.com/"+this.userData['id'].toString());
 

@@ -11,7 +11,7 @@ export class AuthServiceService {
   constructor(private router: Router, private http: HttpClient) {}
 
   public isAuthenticatedFunc(): boolean {
-    localStorage.getItem('login') == 'false'
+    localStorage.getItem('login') == null
       ? (this.isAuthenticated = false)
       : (this.isAuthenticated = true);
     // const token = localStorage.getItem('token');

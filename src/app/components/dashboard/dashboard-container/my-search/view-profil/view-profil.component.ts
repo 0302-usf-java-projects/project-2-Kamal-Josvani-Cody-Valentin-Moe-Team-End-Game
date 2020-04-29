@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-view-profil',
@@ -7,12 +8,12 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./view-profil.component.scss']
 })
 export class ViewProfilComponent implements OnInit {
-
-  constructor(private router:Router,private route:ActivatedRoute) { }
+  id:number;
+  constructor(private router:Router,private route:ActivatedRoute,private sharedService:SharedService) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.queryParamMap.get('id'));
-    
+    this.id = Number.parseInt(this.route.snapshot.queryParamMap.get('id'));
+    this.sharedService.sendOtherPost(this.id);
   }
 
 }

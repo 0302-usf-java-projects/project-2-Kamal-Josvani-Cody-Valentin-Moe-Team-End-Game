@@ -41,6 +41,10 @@
         color: $primary-color;
         cursor: pointer;
         font-weight: 100;
+        display: inline-block;
+        // height: 31px;
+        // display: inline-block;
+        // vertical-align: text-bottom;
       }
       .forgot-password:hover,
       .no-account:hover {

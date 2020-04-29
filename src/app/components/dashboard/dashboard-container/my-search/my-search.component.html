@@ -1,17 +1,14 @@
 <div id="container">
     <div id="title">#Search</div>
     <div id="search">
-        <input type="text">
-        <div id="btn-search">
+        <input #keyword type="text" (keydown)="search()">
+        <div id="btn-search" (click)="search()">
             <i class="fas fa-search"></i>
         </div>
     </div>
 
     <div id="search-container">
-        <app-item-search></app-item-search>
-        <app-item-search></app-item-search>
-
-        <app-item-search></app-item-search>
+        <app-item-search *ngFor="let user of users" [user]="user"></app-item-search>
 
       </div>
 </div>

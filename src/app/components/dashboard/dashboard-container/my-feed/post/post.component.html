@@ -9,7 +9,7 @@
     (change)="preview(file.files)"
   />
   <quill-editor
-    format="html"
+    [format]="html"
     [(ngModel)]="textFormat"
     theme="snow"
     placeholder="What's in your mind, Kamal ?"

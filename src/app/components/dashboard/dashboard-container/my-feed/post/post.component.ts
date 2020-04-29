@@ -96,6 +96,7 @@ export class PostComponent implements OnInit {
       this.postService.set(post).then((resp)=>{
         console.log(resp);
         this.sharedService.sendRefreshPost();
+        this.textFormat = "";
       })
       this.isLoading = false;
       console.log(this.textFormat);

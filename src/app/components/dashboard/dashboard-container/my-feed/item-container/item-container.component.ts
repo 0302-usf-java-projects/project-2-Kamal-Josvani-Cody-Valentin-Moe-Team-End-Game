@@ -10,17 +10,34 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class ItemContainerComponent implements OnInit {
   posts:Post[];
+  isOther:boolean = false;
   constructor(private postService:PostService,private sharedService:SharedService) {
+
     this.sharedService.getRefreshPost().subscribe(()=>{
-      this.getpost();
-    })
+      this.getmypost();
+    });
+    this.sharedService.getOtherPost().subscribe((id)=>{
+      this.isOther = true;
+      this.getOtherpost(id["id"]);
+      console.log("look here");
+    console.log(id["id"]);
+    });
   }
 
   ngOnInit(): void {
-    this.getpost();
+    if(!this.isOther)
+    this.getmypost();
+
   }
 
-  getpost(){
+  getOtherpost(id){
+    this.postService.getbyId(id).then(resp=>{
+      console.log(resp);
+      this.posts = resp.reverse();;
+    })
+  }
+
+  getmypost(){
     let user = JSON.parse(localStorage.getItem("login"))
     
     this.postService.getbyId(user.id).then(resp=>{

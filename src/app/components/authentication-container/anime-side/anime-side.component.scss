@@ -11,6 +11,13 @@
   width: 60vw;
 }
 
+#anime-container .wrong {
+  background-color: red !important;
+}
+#anime-container .success {
+  background-color: green !important;
+}
+
 #anime-container .background {
   position: absolute;
   width: 100%;
@@ -18,6 +25,55 @@
   z-index: -1;
   background: $primary-color;
   opacity: 0.8;
+
+  #welcome{
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+    margin: 50px;
+    animation: welcome-anime 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) 1s both;
+  }
+
+  #why{
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 100px 50px;
+    animation: welcome-anime 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) 2s both;
+  }
+  #arg-container {
+
+    color: white;
+    font-weight: 400;
+    font-size: 18px;
+    margin: 50px 50px;
+    #arg1{
+      margin: 20px;
+      animation: welcome-anime 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) 3s both;
+    }
+    #arg2{
+      margin: 20px;
+      animation: welcome-anime 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) 3.5s both;
+    }
+    #arg3{
+      margin: 20px;
+      animation: welcome-anime 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) 4s both;
+    }
+    #arg4{
+      margin: 20px;
+      animation: welcome-anime 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) 4.5s both;
+    }
+  }
+
+  #error-login, #success-login, #success-register{
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 100px 50px;
+    animation: welcome-anime 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) 1 both;
+
+  }
+
 }
 #triangle {
   clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%, 70% 50%);
@@ -27,4 +83,32 @@
   top: 0;
   width: 60vw;
   height: 100vh;
+}
+
+
+/*******************ANIME****************************/
+
+@-webkit-keyframes welcome-anime {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes welcome-anime {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
 }

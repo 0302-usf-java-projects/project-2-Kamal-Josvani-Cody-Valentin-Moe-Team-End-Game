@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import $ from "jquery";
 import { Router, ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/model/User';
 
 @Component({
   selector: 'app-item-search',
@@ -8,15 +9,16 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./item-search.component.scss']
 })
 export class ItemSearchComponent implements OnInit {
+  @Input("user") user:User;
   src_img="../../../../../../../assets/blank-profile-picture.png";
 
   constructor(private router:Router,private route: ActivatedRoute) {
 
-    this.imageExists("https://projectendgame.s3.us-east-2.amazonaws.com/14")
 
   }
 
   ngOnInit(): void {
+    this.imageExists("https://projectendgame.s3.us-east-2.amazonaws.com/"+this.user.id)
   }
 
 
@@ -24,7 +26,6 @@ export class ItemSearchComponent implements OnInit {
 
     $.get(image_url)
     .done(()=> { 
-      console.log("exist");
         this.src_img = image_url;
     }).fail(()=> { 
       console.log("dont exist");
@@ -35,7 +36,7 @@ export class ItemSearchComponent implements OnInit {
 
 goToProfil() {
  // this.router.navigate(['/viewprofil']);
-  this.router.navigate(['../viewprofil'],{queryParams:{id:14},relativeTo: this.route,});
+  this.router.navigate(['../viewprofil'],{queryParams:{id:this.user.id},relativeTo: this.route});
 
 }
 
