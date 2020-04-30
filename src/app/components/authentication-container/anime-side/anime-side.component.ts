@@ -12,8 +12,10 @@ export class AnimeSideComponent implements OnInit {
   isWelcome = true;
   isLoginSuccess = false;
   isRegisterSuccess = false;
+  isResetPassword = false;
   user:User;
-  firstnameRegister:string;
+  userResetPassword:any;
+  firstnameRegister:any;
   constructor(private sharedService:SharedService) {
 
   }
@@ -27,12 +29,14 @@ export class AnimeSideComponent implements OnInit {
       this.isWelcome = false;
       this.isLoginSuccess = false;
       this.isRegisterSuccess = false;
+      this.isResetPassword = false;
     });
     this.sharedService.getSuccessLogin().subscribe(()=>{
       this.isLoginWrong = false;
       this.isWelcome = false;
       this.isLoginSuccess = true;
       this.isRegisterSuccess = false;
+      this.isResetPassword = false;
       this.user = JSON.parse(localStorage.getItem("login"));
 
     });
@@ -43,6 +47,16 @@ export class AnimeSideComponent implements OnInit {
       this.isWelcome = false;
       this.isLoginSuccess = false;
       this.isRegisterSuccess = true;
+      this.isResetPassword = false;
+    });
+    this.sharedService.getResetPassword().subscribe((resp)=>{
+      this.userResetPassword = resp;
+      console.log(this.userResetPassword);
+      this.isLoginWrong = false;
+      this.isWelcome = false;
+      this.isLoginSuccess = false;
+      this.isRegisterSuccess = false;
+      this.isResetPassword = true;
     });
   }
 }

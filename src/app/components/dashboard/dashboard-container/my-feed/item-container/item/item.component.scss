@@ -9,7 +9,7 @@
     user-select: none;
     padding: 10px;
     img {
-      width: 50px;
+      width: 75px;
       border-radius: 50px;
       vertical-align: middle;
       margin: 0 10px;
@@ -68,17 +68,32 @@
     .commentator{
       img{
         border-radius: 50%;
-        width: 30px;
-        margin: 10px;
+        width: 55px;
+        margin: 5px;
         display: inline-block;
+        vertical-align: text-bottom;
+        clip-path: circle(at 50% 50%);
+
       }
     .block-comment{
       display: inline-block;
-      width: calc(100% - 50px);
+      width: calc(100% - 75px);
       vertical-align: middle;
+      margin-top: 10px;
+      margin-right: 10px;
+      border: #e2e2e2 solid 1px;
+      border-radius: 20px;
+      padding: 10px;
       .name{
         font-weight: bold;
         user-select: none;
+        font-size: 16px;
+      }
+      .time{
+        font-size: 10px;
+      }
+      .text{
+        padding: 10px;
       }
 
     }

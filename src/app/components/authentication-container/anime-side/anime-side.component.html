@@ -4,23 +4,23 @@
   <div class="background" [ngClass]="{'wrong': isLoginWrong,'success': isLoginSuccess}">
     <div *ngIf="isWelcome">
       <div id="welcome">
-        Welcome to XXXXX
+        Welcome to <img id="logo" src="../../../../assets/logo.png"> Marvel Meet
       </div>
       <div id="why">
-        Why choose XXXXX ?
+        Why choose Marvel Meet ?
       </div>
       <div id="arg-container">
         <div id="arg1">
-          <i class="fas fa-arrow-circle-right"></i> bla bla bla bla 
+          <i class="fas fa-arrow-circle-right"></i> Meet new superheroes
         </div>
         <div id="arg2">
-          <i class="fas fa-arrow-circle-right"></i> bla bla bla bla 
+          <i class="fas fa-arrow-circle-right"></i> Fight crime together !
         </div>
         <div id="arg3">
-          <i class="fas fa-arrow-circle-right"></i> bla bla bla bla 
+          <i class="fas fa-arrow-circle-right"></i> Get advice from the most famous heroes
         </div>
         <div id="arg4">
-          <i class="fas fa-arrow-circle-right"></i> bla bla bla bla 
+          <i class="fas fa-arrow-circle-right"></i> Learn how to join the Avengers !
         </div>
       </div>
     </div>
@@ -28,10 +28,13 @@
       <div id="error-login">Please verify your username and password !</div>
     </div>
     <div *ngIf="isLoginSuccess">
-      <div id="success-login">Welcome {{user.firstname}} {{user.lastname}} </div>
+      <div id="success-login">Welcome {{user.firstname}} {{user.lastname}} !</div>
     </div>
     <div *ngIf="isRegisterSuccess">
       <div id="success-register">Thank you for choosing us {{firstnameRegister}} !</div>
+    </div>
+    <div *ngIf="isResetPassword">
+      <div id="reset-password">New password was sent to {{userResetPassword.resp}} !</div>
     </div>
   </div>
 </div>

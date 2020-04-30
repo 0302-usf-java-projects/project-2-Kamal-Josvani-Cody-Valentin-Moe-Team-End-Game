@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../model/User';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class AuthServiceService {
   constructor(private router: Router, private http: HttpClient) {}
 
   public isAuthenticatedFunc(): boolean {
-    localStorage.getItem('login') == null
+    JSON.parse(localStorage.getItem('login')) == null
       ? (this.isAuthenticated = false)
       : (this.isAuthenticated = true);
     // const token = localStorage.getItem('token');
@@ -22,7 +23,7 @@ export class AuthServiceService {
   }d
 
   public authMe(email:String,password:String) {
-   return this.http.get("http://localhost:8080/Project_2_SpringFlowers/"+email+"/"+password+"/authentication.tony")
+   return this.http.get(environment.base_url+email+"/"+password+"/authentication.tony")
     .toPromise();
   }
 }

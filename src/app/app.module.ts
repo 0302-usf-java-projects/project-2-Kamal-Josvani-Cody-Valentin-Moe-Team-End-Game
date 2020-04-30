@@ -31,6 +31,9 @@ import { ItemSearchComponent } from './components/dashboard/dashboard-container/
 import { ViewProfilComponent } from './components/dashboard/dashboard-container/my-search/view-profil/view-profil.component';
 import { OtherProfilComponent } from './components/dashboard/dashboard-container/my-search/view-profil/other-profil/other-profil.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ForgotPasswordComponent } from './components/authentication-container/form-login/forgot-password/forgot-password.component';
+import { TimeDirective } from './time.directive';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,8 @@ import { SafeHtmlPipe } from './safe-html.pipe';
     ViewProfilComponent,
     OtherProfilComponent,
     SafeHtmlPipe,
+    ForgotPasswordComponent,
+    TimeDirective,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +71,7 @@ import { SafeHtmlPipe } from './safe-html.pipe';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    MatDialogModule,
     QuillModule.forRoot({
       modules: {
         syntax: true,
@@ -85,5 +91,6 @@ import { SafeHtmlPipe } from './safe-html.pipe';
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
+  entryComponents: [ForgotPasswordComponent]
 })
 export class AppModule {}

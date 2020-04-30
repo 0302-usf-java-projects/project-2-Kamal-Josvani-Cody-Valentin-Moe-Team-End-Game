@@ -1,6 +1,6 @@
 <div id="container">
   <div id="head">
-    <img [src]="src_img" alt="" />
+    <img  [src]="'https://projectendgame.s3.us-east-2.amazonaws.com/'+post['user'].id" alt="" onError="this.src='../../../../../../../assets/blank-profile-picture.png'" />
     <div id="name-time-container">
       <div id="name">{{post["user"]["firstname"]}} {{post["user"]["lastname"]}}</div>
       <div id="time">
@@ -17,50 +17,29 @@
     <img [src]="'https://projectendgame.s3.us-east-2.amazonaws.com/'+post['photoKey']" *ngIf="post['type']=='photo'" />
 
   </div>
- <!--- <div id="separator"></div>
-  <div id="commentator-container">
-    <div class="commentator">
-      <img [src]="src_img" alt="" />
-      <div class="block-comment">
+ <div id="separator"></div>
+  <div id="commentator-container" *ngIf="comments">
+    <div *ngFor="let comment of comments" class="commentator">
+      <img  [src]="'https://projectendgame.s3.us-east-2.amazonaws.com/'+comment.user_id" alt="" onError="this.src='../../../../../../../assets/blank-profile-picture.png'" />
+      <div class="block-comment" src="">
         <div class="name">
-          Kamal Ait Sidhoum
+          {{comment.firstname}} {{comment.lastname}}
         </div>
+        <div class="time" [appTime]="comment.created">no</div>
         <div class="text">
-          This is the comment !
+          {{comment.content}}
         </div>
       </div>
     </div>
-    <div class="commentator">
-      <img [src]="src_img" alt="" />
-      <div class="block-comment">
-        <div class="name">
-          Kamal Ait Sidhoum
-        </div>
-        <div class="text">
-          This is the comment !
-        </div>
-      </div>
-    </div>
-    <div class="commentator">
-      <img [src]="src_img" alt="" />
-      <div class="block-comment">
-        <div class="name">
-          Kamal Ait Sidhoum
-        </div>
-        <div class="text">
-          This is the comment !
-        </div>
-      </div>
-    </div>
-
-  </div>-->
+  </div>
   <div id="comment">
     <quill-editor
-    format="html"
+    format="text"
     theme="bubble"
     placeholder="Write a comment..."
+    [(ngModel)]="commentText"
   ></quill-editor>
-  <div id="comment-btn">
+  <div id="comment-btn" (click)="postComment()">
     <i class="fas fa-paper-plane"></i>
   </div>
   </div>

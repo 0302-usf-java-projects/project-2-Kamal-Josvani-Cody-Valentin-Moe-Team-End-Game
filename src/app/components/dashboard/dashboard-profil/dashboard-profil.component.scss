@@ -9,10 +9,23 @@
   //box-shadow: inset 0px 3px 1px -1px #ffbf00;
   #brand {
     height: 50px;
-    background-color: #ececec;
+    background-color: $primary-color2;
     text-align: center;
     color: white;
     line-height: 50px;
+    #logo{
+      width: 35px;
+      filter: invert(1);
+      vertical-align: middle;
+
+    }
+    #text-logo{
+      font-size: 25px;
+    font-weight: bold;
+    display: inline;
+    margin-left: 10px;
+    vertical-align: middle;
+    }
   }
   #name-user {
     text-align: center;

@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/model/User';
 import { SharedService } from 'src/app/shared.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @Component({
   selector: 'app-form-login',
@@ -20,7 +22,8 @@ export class FormLoginComponent implements OnInit {
     private authService: AuthServiceService,
     private router: Router,
     public register: FormBuilder,
-    private sharedService:SharedService
+    private sharedService:SharedService,
+    public dialog: MatDialog
   ) {
     this.form = this.register.group({
       email: ['', Validators.required],
@@ -34,12 +37,21 @@ export class FormLoginComponent implements OnInit {
       : this.router.navigateByUrl('/dashboard/(my:feed)');
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ForgotPasswordComponent, {
+      width: '500px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
+  }
+
   toRegisterFunc() {
     this.toggle.emit();
   }
 
   login() {
-
     if (this.form.valid) {
       this.isLoading = !this.isLoading;
       console.log(this.form);

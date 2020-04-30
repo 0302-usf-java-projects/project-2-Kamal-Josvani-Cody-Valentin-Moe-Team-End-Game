@@ -20,7 +20,7 @@ export class ItemContainerComponent implements OnInit {
       this.isOther = true;
       this.getOtherpost(id["id"]);
       console.log("look here");
-    console.log(id["id"]);
+      console.log(id["id"]);
     });
   }
 
@@ -40,7 +40,7 @@ export class ItemContainerComponent implements OnInit {
   getmypost(){
     let user = JSON.parse(localStorage.getItem("login"))
     
-    this.postService.getbyId(user.id).then(resp=>{
+    this.postService.getAll().then(resp=>{
       console.log(resp);
       this.posts = resp.reverse();;
     })

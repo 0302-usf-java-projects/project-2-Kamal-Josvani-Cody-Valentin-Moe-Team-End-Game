@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
+import { User } from './model/User';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class SharedService {
   private WrongLoginSubject = new Subject<any>();
   private SuccessLoginSubject = new Subject<any>();
   private SuccessRegisterSubject = new Subject<any>();
+  private ResetPasswordSubject = new Subject<any>();
 
   sendRefresh() {
     this.RefreshSubject.next();
@@ -50,5 +52,11 @@ export class SharedService {
   }
   getSuccessRegister(): Observable<any>{
     return this.SuccessRegisterSubject.asObservable();
+  }
+  sendResetPassword(resp:String){
+    this.ResetPasswordSubject.next({ resp: resp });
+  }
+  getResetPassword(): Observable<any>{
+    return this.ResetPasswordSubject.asObservable();
   }
 }

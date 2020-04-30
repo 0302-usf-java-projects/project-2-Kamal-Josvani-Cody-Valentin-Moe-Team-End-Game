@@ -32,6 +32,11 @@
     font-size: 50px;
     margin: 50px;
     animation: welcome-anime 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) 1s both;
+      #logo{
+        width: 55px;
+        filter: invert(1);
+        vertical-align: middle;
+      }
   }
 
   #why{
@@ -65,7 +70,7 @@
     }
   }
 
-  #error-login, #success-login, #success-register{
+  #error-login, #success-login, #success-register, #reset-password{
     color: white;
     font-weight: bold;
     font-size: 25px;
