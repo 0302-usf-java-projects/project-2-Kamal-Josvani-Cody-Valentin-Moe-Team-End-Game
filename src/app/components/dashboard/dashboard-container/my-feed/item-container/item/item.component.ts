@@ -47,6 +47,7 @@ export class ItemComponent implements OnInit {
       user_id:this.userData.id
     }
     this.commentService.set(comment).then((res)=>{
+      this.commentText = "";
       this.getComment();
     })
   }

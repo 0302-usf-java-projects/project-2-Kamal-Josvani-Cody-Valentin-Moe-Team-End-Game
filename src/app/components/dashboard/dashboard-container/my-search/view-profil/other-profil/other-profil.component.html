@@ -2,14 +2,13 @@
       <div id="title">#profil</div>
       <div id="user-container" *ngIf="user">
         <div id="img-container">
-          <img [src]="src_img" alt="" />
+          <img [src]="'https://projectendgame.s3.us-east-2.amazonaws.com/'+user.id" alt="" onError="this.src='../../../../../../../assets/blank-profile-picture.png'" alt="" />
         </div>
           <div id="name">{{user.firstname}} {{user.lastname}}</div>
           <div id="container-info">
             <div class="row">
               <div class="col-4">
                 <div><i class="fas fa-venus-mars"></i><br> {{user.sex == '1' ? 'Male':'Females'}}</div>
-  
               </div>
               <div class="col-4">
                 <div><i class="fas fa-birthday-cake"></i><br> {{user.birthday.split('T')[0]}}</div>
